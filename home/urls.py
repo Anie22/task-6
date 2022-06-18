@@ -1,7 +1,14 @@
 from django.urls import path
-from .views import home
+from .views import xyz_hotel, fetch, Signup, login_view, logout_view, home 
+
+app_name = "home"
 
 
 urlpatterns = [
-    path("", home),
+    path("", home, name="home"),
+    path("xyz hotel/", xyz_hotel, name="xyz hotel"),
+    path("fetch/", fetch, name="fetch"),
+    path("register/", Signup, name="register"),
+    path("login/", login_view, name="login"),
+    path("logout/", logout_view, name="logout"),
 ]

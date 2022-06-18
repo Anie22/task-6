@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Fetch a guest</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="guest name">Guest Name</label>
+            <input type="text" name="guest_name" id="guest_name" value="{{ guest_name }}" required>
+        </div><br>
+        <div>
+            <button type="submit">Fetch</button>
+        </div>
+    </form>
+
+</body>
+
+</html>

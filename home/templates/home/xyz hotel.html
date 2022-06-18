@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Guest Record For XYZ Hotel</h2>
+    <p>Enter the guest record</p>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="Room Number">Room number</label>
+            <input type="number" name="room_number" id="room_number " required>
+        </div><br>
+        <div>
+            <label for="Amount paid">Amount paid</label>
+            <input type="text" name="amount_paid" id="amount_paid" required>
+        </div><br>
+        <div>
+            <label for="occupant name"> Occupant name</label>
+            <input type="text" name=" occupant_name" id=" occupant_name" required>
+        </div><br>
+        <div>
+            <label for="Occupant email">Occupant email</label>
+            <input type="email" name="occupant_email" id="occupant_email" required>
+        </div><br>
+        <div>
+            <label for="Occupant_occupation">Occupant occupation</label>
+            <input type="text" name="occupant_occupation" id="occupant_occupation" required>
+        </div><br>
+        <div>
+            <label for="Number_of_night">Number of night</label>
+            <input type="number" name="number_of_night" id="number_of_night" required>
+        </div><br>
+        <div>
+            <label for="Start_date">Start date</label>
+            <input type="date" name="start_date" id="start_date" required>
+        </div><br>
+        <div>
+            <label for="End_date">End date</label>
+            <input type="date" name="end_date" id="end_date" required>
+        </div><br>
+        <div>
+            <button type="submit">Add Guest Record</button>
+        </div>
+    </form>
+</body>
+
+</html>
