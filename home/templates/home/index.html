@@ -12,7 +12,7 @@
     {% if user.is_authenticated %}
     <a href="{% url 'home:logout' %}">Logout</a><br>
     <a href="{% url 'home:xyz hotel' %}">XYZ hotel</a><br>
-    <a href="{% url 'home:fetch' %}">Get Guest Record</a> {% else %}
+    <a href="{% url 'home:fetch_guest' %}">Get Guest Record</a> {% else %}
     <a href="{% url 'home:login' %}">Login</a><br>
     <a href="{% url 'home:Signup' %}">Signup</a> {% endif %}
 

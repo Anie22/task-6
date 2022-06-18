@@ -9,9 +9,17 @@
 </head>
 
 <body>
-    <p></p>
-    <p></p>
-    <p></p>
+    {% if fetched_guest == Guest not found %}
+    <p><b>No Guest Found</b></p>
+    {% else %}
+    <p><b> Occupant Name</b>{{ fetched_guest.occupant_name}}</p>
+    <p><b>Occupant Occupation</b>{{ fetched_guest.occupant_occupation}}</p>
+    <p><b>Room Number</b>{{ fetched_guest.room_number}}</p>
+    <p><b>Amount paid </b>{{ fetched_guest.amount_paid}}</p>
+    <p><b>Number of night </b>{{ fetched_guest.number_of_night}}</p>
+    <p><b> Start date</b>{{ fetched_guest.start_date}}</p>
+    <p><b>End date</b>{{ fetched_guest.end_date}}</p>
+    {% endif %}
 </body>
 
 </html>

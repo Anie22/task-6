@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -24,8 +25,18 @@ def xyz_hotel(request):
     return render(request, "home/xyz hotel.html")
 
 
-def fetch(request):
-    return render(request, "home/fetch.html")
+def fetch_guest(request):
+    if request.method == "POST":
+       guest_name = request.POST.get("guest_name")
+       if Guest.objects.filter (name=guest_name).exists():
+           fetched_guest = xyz_hotel.objects.get(name=guest_name)
+       else:
+           fetched_guest = "Guest not found"
+       context = {
+         "fetched_guest": fetched_guest  
+       }
+       
+    return render(request, "home/fetched.html")
 
 def Signup(request):
     if request.method == "POST":
