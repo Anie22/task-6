@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import xyz_hotel, fetch_guest, Signup, login_view, logout_view, home 
+from .views import xyz_hotel, fetch, Signup, login_view, logout_view, home 
 
 app_name = "home"
 

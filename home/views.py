@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
+# def login(request):
+    
+
 def home(request):
     return render(request, "home/index.html")
 
@@ -20,15 +23,15 @@ def xyz_hotel(request):
         start_date = request.POST.get("start_date")
         end_date = request.POST.get("end_date")
         
-        guest_record = xyz_hotel(Room_number=room_number, Amount=amount_paid, name=occupant_name, email=occupant_email, Occupation=occupant_occupation, Number=number_of_night, Start=start_date, End=end_date)
+        guest_record = xyz_hotel(Occupant_Name=occupant_name, Occupant_Email=occupant_email, Occupant_Occupation=occupant_occupation, Room_number=room_number, Amount_paid=amount_paid, Number_of_night=number_of_night, Start_date=start_date, End_date=end_date)
         guest_record.save()
     return render(request, "home/xyz hotel.html")
 
 
-def fetch_guest(request):
+def fetch(request):
     if request.method == "POST":
        guest_name = request.POST.get("guest_name")
-       if Guest.objects.filter (name=guest_name).exists():
+       if guest_name.objects.filter (name=guest_name).exists():
            fetched_guest = xyz_hotel.objects.get(name=guest_name)
        else:
            fetched_guest = "Guest not found"
@@ -45,11 +48,14 @@ def Signup(request):
         fname = request.POST.get("fname")
         lname = request.POST.get("lname")
         password1 = request.POST.get("password")
-        password2 = request.POST.get("password2")
+        password2 = request.POST.get("confirm_password")
         
         if password2 == password1:
            new_user = User.objects.create_user(username=username, email=email, first_name=fname, last_name=lname, password=password1)
            new_user.save()
+           
+        #    new = authenticate(request, username=username, password=password1)
+        #    login(request, new)
            return redirect("home:login")
     return render(request, "home/register.html")    
 
