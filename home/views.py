@@ -16,14 +16,14 @@ def xyz_hotel(request):
     if request.method == "POST":
         room_number = request.POST.get("room_number")
         amount_paid = request.POST.get("amount_paid")
-        occupant_name = request.POST.get("occupant_name")
+        name = request.POST.get("name")
         occupant_email = request.POST.get("occupant_email")
         occupant_occupation = request.POST.get("occupant_occupation")
         number_of_night = request.POST.get("number_of_night")
         start_date = request.POST.get("start_date")
         end_date = request.POST.get("end_date")
         
-        guest_record = xyz_hotel(Occupant_Name=occupant_name, Occupant_Email=occupant_email, Occupant_Occupation=occupant_occupation, Room_number=room_number, Amount_paid=amount_paid, Number_of_night=number_of_night, Start_date=start_date, End_date=end_date)
+        guest_record = xyz_hotel(name=name, Occupant_Email=occupant_email, Occupant_Occupation=occupant_occupation, Room_number=room_number, Amount_paid=amount_paid, Number_of_night=number_of_night, Start_date=start_date, End_date=end_date)
         guest_record.save()
     return render(request, "home/xyz hotel.html")
 
